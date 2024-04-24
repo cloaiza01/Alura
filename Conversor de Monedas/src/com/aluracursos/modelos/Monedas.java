@@ -10,8 +10,8 @@ public class Monedas {
     private double conversionInicial;
 
     public Monedas(MonedaRespuesta datosDeMoneda) {
-        this.tipoMoneda = datosDeMoneda.base_code();
-        this.conversionesMoneda = datosDeMoneda.conversion_rates();
+        this.tipoMoneda = datosDeMoneda.codigo_base();
+        this.conversionesMoneda = datosDeMoneda.rango_conversion();
         this.valorInicial = 0;
         this.conversionInicial = 0;
     }
@@ -23,7 +23,7 @@ public class Monedas {
             this.conversionInicial = conversionesMoneda.get(cambiarMoneda) * valorInicialAConvertir;
             return this.conversionInicial;
         }catch (Exception e){
-            System.out.println("Ingresa un número mayor a0 para conversión");
+            System.out.println("error: " + e);
         }
         return 0;
     }
@@ -31,19 +31,15 @@ public class Monedas {
     public String gettipoMoneda() {
         return tipoMoneda;
     }
-
     public String getcambiarMoneda() {
         return cambiarMoneda;
     }
-
     public HashMap<String, Double> getConversionesMoneda() {
         return conversionesMoneda;
     }
-
     public double getvalorInicial() {
         return valorInicial;
     }
-
     public double getConversion() {
         return conversionInicial;
     }
@@ -53,7 +49,7 @@ public class Monedas {
         String valorInicialDeMoneda = String.format("%.2f", this.valorInicial);
         String conversionDeMoneda = String.format("%.2f", this.conversionesMoneda);
 
-        return "El valor Inicial de tu moneda " + valorInicialDeMoneda + " [" + this.tipoMoneda + ']' + " corresponde al valor Inicial de la Moneda" +
-                " final de =>>> " + conversionDeMoneda + " [" + this.cambiarMoneda + "]\n";
+        return "El cambio de " + valorInicialDeMoneda + " [" + this.cambiarMoneda + ']' + " a la moneda elegida es  " +
+                conversionDeMoneda + " [" + this.cambiarMoneda + "]\n";
     }
 }

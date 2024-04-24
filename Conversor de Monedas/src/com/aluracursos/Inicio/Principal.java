@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Principal {
     static String llaveApi = "3ef26dd54c274ba4290e8119";
-    static HashMap<Integer, String[]> tipoConversiones = new TipoDeConversiones().getConversionesMoneda();
+    static HashMap<Integer, String[]> tipoConversiones = new TipoDeConversiones().getconversionsMoneda();
     static RevisarConversiones consulta = new RevisarConversiones();
     static String[] valores;
     static String monedaACambiar = "";
@@ -48,7 +48,7 @@ public class Principal {
                 historialConversiones.agregaConversion(monedas);
                 System.out.println(monedas);
             } catch (Exception e) {
-                System.out.println("Mal Mal Mal, por favor ingrese un monto correcto");
+                System.out.println("Mal Mal Mal, por favor ingrese un número del menú correcto");
                 scanner.nextLine();
             }
         }
